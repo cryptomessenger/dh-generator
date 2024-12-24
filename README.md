@@ -1,1 +1,1 @@
-# dh-generator
+# DH generator
