@@ -21,7 +21,7 @@ def main():
         time_spent = datetime.now() - start
         seconds = round(time_spent.total_seconds())
         print(f'\nTime spent: {seconds} sec')
-        input('\nPress Enter to repeat')
+        input('\nPress Enter to restart')
         if os.name == 'nt':
             os.system('cls')
         else:
