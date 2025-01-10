@@ -5,7 +5,7 @@ from datetime import datetime
 
 def generate() -> str:
     g = random.choice([2, 5])
-    parameters = dh.generate_parameters(generator=g, key_size=2048)
+    parameters = dh.generate_parameters(generator=g, key_size=1150)
     numbers = parameters.parameter_numbers()
     result = f'{numbers.g}_{numbers.p}'
     return result
