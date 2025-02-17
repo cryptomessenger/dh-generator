@@ -8,6 +8,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from dh_generator import generate_dh_parameters
 
+load_dotenv()
+
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
@@ -27,13 +29,7 @@ async def generate(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await update.message.reply_text('Key not found')
 
 
-def main() -> None:
-    load_dotenv()
-    app = ApplicationBuilder().token(os.getenv('TOKEN')).build()
-    app.add_handler(CommandHandler('start', start))
-    app.add_handler(CommandHandler('generate', generate))
-    app.run_polling()
-
-
-if __name__ == '__main__':
-    main()
+app = ApplicationBuilder().token(os.getenv('TOKEN')).build()
+app.add_handler(CommandHandler('start', start))
+app.add_handler(CommandHandler('generate', generate))
+app.run_polling()
